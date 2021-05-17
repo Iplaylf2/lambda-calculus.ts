@@ -1,0 +1,25 @@
+{
+  "name": "lambda-calculus.ts",
+  "private": true,
+  "main": "./lambda-calculus.js",
+  "types": "./lambda-calculus.d.ts",
+  "scripts": {
+    "init": "npm install",
+    "build": "npx gulp build",
+    "init-draft": "npm run build && cd draft && npm install && cd ..",
+    "build-draft": "npx tsc --project ./draft/tsconfig.json"
+  },
+  "author": "i-play-lf2",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "typescript": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Iplaylf2/lambda-calculus.ts.git"
+  },
+  "keywords": [
+    "lambda-calculus"
+  ]
+}

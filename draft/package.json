@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "dependencies": {
+    "lambda-calculus": "file:../dist"
+  }
+}
