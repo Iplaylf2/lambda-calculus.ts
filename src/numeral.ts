@@ -1,3 +1,6 @@
+import { $true, $false, $Boolean } from "./boolean";
+import { $pair, $Pair, first, second } from "./pair";
+
 // 0 = ƛ f x. x
 // 1 = ƛ f x. (f x)
 
@@ -13,6 +16,16 @@ export function $0<T>(_f: (x: T) => T, x: T): T {
 // 1 = ƛ f x. x
 export function $1<T>(f: (x: T) => T, x: T): T {
   return f(x);
+}
+
+export function $n(n: number): $Numeral {
+  return function (f, x) {
+    let result = x;
+    for (let i = 0; i !== n; i++) {
+      result = f(result);
+    }
+    return result;
+  };
 }
 
 export function toNative(x: $Numeral): number {
@@ -67,4 +80,18 @@ export function pow(a: $Numeral, e: $Numeral): $Numeral {
 // = ƛ a e. (e (mult a) 1)
 export function pow_(a: $Numeral, e: $Numeral): $Numeral {
   return e((n) => mult(a, n), $1);
+}
+
+// predecessor = ƛ n. ƛ f x. (second (n <ƛ p. (pair false (((first p) <ƛ x. x> f) (second p)))> (pair true x)))
+export function pred_(n: $Numeral): $Numeral {
+  return function (f, x) {
+    type T = typeof x;
+    return second(
+      n(
+        (p: $Pair<$Boolean, T>) =>
+          $pair($false, first(p)((x: T) => x, f)(second(p))),
+        $pair($true, x)
+      )
+    );
+  };
 }
