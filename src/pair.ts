@@ -16,15 +16,15 @@ export function $pair<T>(a: T, b: T): $Pair<T> {
 }
 
 // first = ƛ pair. (pair true)
-export function $first<T>(pair: $Pair<T>): T {
+export function first<T>(pair: $Pair<T>): T {
   return pair($true);
 }
 
 // second = ƛ pair. (pair false)
-export function $second<T>(pair: $Pair<T>): T {
+export function second<T>(pair: $Pair<T>): T {
   return pair($false);
 }
 
 export function toNative<T>(x: $Pair<T>): [T, T] {
-  return [$first(x), $second(x)];
+  return [first(x), second(x)];
 }
