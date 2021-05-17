@@ -3,16 +3,16 @@
 // ƛ x. ƛ a b.(x a b)
 
 export interface $Boolean {
-  <T>(a: T, b: T): T;
+  <T, K>(a: T, b: K): T | K;
 }
 
 // true = ƛ a b. a
-export function $true<T>(a: T, _b: T): T {
+export function $true<T>(a: T, _b: any): T {
   return a;
 }
 
 // false = ƛ a b. b
-export function $false<T>(_a: T, b: T): T {
+export function $false<T>(_a: any, b: T): T {
   return b;
 }
 
