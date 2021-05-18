@@ -20,17 +20,17 @@ export function toNative(x: $Boolean): boolean {
   return x(true, false);
 }
 
-//  and = ƛ a b. (a b false)
+//  and = ƛ a b. a b false
 export function and(a: $Boolean, b: $Boolean): $Boolean {
   return a(b, $false);
 }
 
-//  or = ƛ a b. (a true b)
+//  or = ƛ a b. a true b
 export function or(a: $Boolean, b: $Boolean): $Boolean {
   return a($true, b);
 }
 
-//  not = ƛ x. (x false true)
+//  not = ƛ x. x false true
 export function not(x: $Boolean): $Boolean {
   return x($false, $true);
 }
