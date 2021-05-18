@@ -14,7 +14,11 @@ export {
   succ,
   plus,
   mult,
-  pow,
-  pred_,
+  exp,
+  pred,
+  minus,
+  isZero,
+  leq,
+  eq,
   toNative as toNumber,
 } from "./numeral";
