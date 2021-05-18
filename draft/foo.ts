@@ -1,9 +1,9 @@
-import { $n, mult, plus, exp, pred, toNumber } from "lambda-calculus";
+import { $n, mult, plus, exp, minus, toNumber } from "lambda-calculus";
 
-const $4 = $n(4);
+const $5 = $n(5);
 const $2 = $n(2);
 
-console.log(toNumber(plus($4, $2)));
-console.log(toNumber(mult($4, $2)));
-console.log(toNumber(exp($4, $2)));
-console.log(toNumber(pred(pred($4))));
+console.log(toNumber(plus($5, $2)));
+console.log(toNumber(mult($5, $2)));
+console.log(toNumber(exp($5, $2)));
+console.log(toNumber(minus($5, $2)));
