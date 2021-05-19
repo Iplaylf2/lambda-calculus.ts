@@ -136,7 +136,7 @@ export function minus(a: $Numeral, b: $Numeral) {
   return b(pred, a);
 }
 
-//  is-zero = ƛ n. (n <ƛ _. false> true)
+//  is-zero = ƛ n. n <ƛ _. false> true
 export function isZero(n: $Numeral): $Boolean {
   return n((_) => $false, $true);
 }
