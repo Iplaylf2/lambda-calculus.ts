@@ -8,7 +8,7 @@
 //  Y = ƛ f. <ƛ recur-able. recur-able recur-able> (to-recur-able f)
 //  = ƛ f. <ƛ ra. ra ra> <ƛ r. f (r r)>
 export function $y<T extends Function>(f: (r: T) => T): T {
-  return ((rA) => rA(rA as any))((r: T) =>
+  return ((rA) => rA(rA as any))((r: any) =>
     f(((...x: any[]) => r(r)(...x)) as any)
   );
 }
