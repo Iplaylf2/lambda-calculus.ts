@@ -22,3 +22,4 @@ export {
   eq,
   toNative as toNumber,
 } from "./numeral";
+export { $y } from "./y";
